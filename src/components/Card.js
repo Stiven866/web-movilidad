@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import {AppBar,Toolbar,Typography,Paper,Grid,Button,CardActions} from '@material-ui/core';
+//import Toolbar from '@material-ui/core/Toolbar';
+//import Typography from '@material-ui/core/Typography';
+//import Paper from '@material-ui/core/Paper';
+//import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import DescriptionIcon from '@material-ui/icons/Description';
+import CreateDialog from './CreateDialog';
 
 const styles = theme => ({
   paper: {
@@ -30,14 +31,12 @@ const styles = theme => ({
   contentWrapper: {
     margin: '40px 16px',
   },
+  button:{
+    marginLeft: 'auto',
+  }
 });
 
 class Card extends Component{
-  constructor(props){
-    super(props);
-  }
-
-
   render(){
     const { classes } = this.props;
     const {
@@ -65,6 +64,12 @@ class Card extends Component{
               {description}
             </Typography>
           </div>
+          <CardActions className={classes.button}>
+            <Button variant="outlined" size="small" color="primary">
+              Agendar Cita
+            </Button>
+            <CreateDialog/>
+            </CardActions>
         </Paper>
       </div>
 

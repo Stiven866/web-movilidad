@@ -124,11 +124,14 @@ class Navigator extends Component {
                   {id}
                 </ListItemText>
               </ListItem>
-              {children.map(({ id: childId, icon, active }) => (
+
+              {children.map(({ id: childId, icon}) => (
                 <ListItem button dense key={childId}
-                    className={classNames(
-                    classes.item,
-                    classes.itemActionable,
+                  onClick={() => this.props.onSelect(childId)}
+                  className={classNames(
+                  classes.item,
+                  classes.itemActionable
+
                   )}
                 >
                   <ListItemIcon>{icon}</ListItemIcon>

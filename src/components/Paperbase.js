@@ -6,7 +6,7 @@ import Hidden from '@material-ui/core/Hidden';
 import Navigator from './Navigator';
 import Card from './Card';
 import Header from './Header';
-import {multas} from './data.js'
+import {multas,categories} from './data.js'
 
 let theme = createMuiTheme({
   typography: {
@@ -153,17 +153,25 @@ const styles = {
 };
 
 class Paperbase extends React.Component {
-  state = {
-    mobileOpen: false,
-  };
+  constructor(props){
+    super(props);
+    this.state = {
+      mobileOpen: false,
+      idItem: categories[0].children[0].id
+    };
+  }
 
   handleDrawerToggle = () => {
     this.setState(state => ({ mobileOpen: !state.mobileOpen }));
   };
 
+  handleSelected = (id) =>{
+    this.setState(state=>({idItem:id}))
+  };
+
   render() {
     const { classes } = this.props;
-
+    const {idItem} = this.state;
     return (
       <MuiThemeProvider theme={theme}>
         <div className={classes.root}>
@@ -175,18 +183,27 @@ class Paperbase extends React.Component {
                 variant="temporary"
                 open={this.state.mobileOpen}
                 onClose={this.handleDrawerToggle}
+                onSelect = {this.handleSelected}
               />
             </Hidden>
             <Hidden xsDown implementation="css">
-              <Navigator PaperProps={{ style: { width: drawerWidth } }} />
+              <Navigator PaperProps={{ style: { width: drawerWidth } }}
+                onSelect = {this.handleSelected}
+              />
             </Hidden>
           </nav>
           <div className={classes.appContent}>
-            <Header onDrawerToggle={this.handleDrawerToggle} />
+            <Header
+              onTitle = {idItem}
+              onDrawerToggle={this.handleDrawerToggle}
+            />
             <main className={classes.mainContent}>
-              {multas.map(({id, title, description})=>
+              {idItem === categories[0].children[0].id
+              ? multas.map(({id, title, description})=>
                 <Card key={id} title={title} description={description}/>
-              )}
+              )
+              : (idItem === categories[0].children[1].id ? <h1>Puntos de información</h1>: <h1>Configuración</h1>)
+            }
             </main>
           </div>
         </div>

@@ -41,7 +41,7 @@ const styles = theme => ({
 });
 
 function Header(props) {
-  const { classes, onDrawerToggle } = props;
+  const { classes, onDrawerToggle, onTitle } = props;
 
   return (
     <React.Fragment>
@@ -97,8 +97,7 @@ function Header(props) {
         elevation={0}
       >
         <Tabs value={0} textColor="inherit">
-          <Tab textColor="inherit" label="Tus Comparendos" />
-
+          <Tab textColor="inherit" label={onTitle} />
         </Tabs>
       </AppBar>
     </React.Fragment>
