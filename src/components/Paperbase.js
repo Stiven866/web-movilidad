@@ -4,8 +4,9 @@ import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
 import Navigator from './Navigator';
-import Content from './Content';
+import Card from './Card';
 import Header from './Header';
+import {multas} from './data.js'
 
 let theme = createMuiTheme({
   typography: {
@@ -146,7 +147,7 @@ const styles = {
   },
   mainContent: {
     flex: 1,
-    padding: '48px 36px 0',
+    padding: '36px 36px 0',
     background: '#eaeff1',
   },
 };
@@ -183,7 +184,9 @@ class Paperbase extends React.Component {
           <div className={classes.appContent}>
             <Header onDrawerToggle={this.handleDrawerToggle} />
             <main className={classes.mainContent}>
-              <Content />
+              {multas.map(({id, title, description})=>
+                <Card key={id} title={title} description={description}/>
+              )}
             </main>
           </div>
         </div>

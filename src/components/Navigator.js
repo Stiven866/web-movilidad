@@ -79,10 +79,10 @@ class Navigator extends Component {
   return (
     <div>
       <Drawer variant="permanent" {...other}>
-        <List disablePadding>
+        <List disablePadding component='ul'>
           <ListItem className={classNames(classes.item, classes.itemCategory)}>
             <IconButton color="inherit">
-              <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-IQjfa4W1pi2M9AT4v_uvbO0Fz2lbbfsfTTo6Rf8SqeghVUPj"
+              <Avatar src="https://cdn0.iconfinder.com/data/icons/iconshock_guys/512/andrew.png"
                 className={classes.iconButtonAvatar}>
               </Avatar>
             </IconButton>
@@ -126,10 +126,9 @@ class Navigator extends Component {
               </ListItem>
               {children.map(({ id: childId, icon, active }) => (
                 <ListItem button dense key={childId}
-                  className={classNames(
+                    className={classNames(
                     classes.item,
                     classes.itemActionable,
-                    active && classes.itemActiveItem,
                   )}
                 >
                   <ListItemIcon>{icon}</ListItemIcon>
