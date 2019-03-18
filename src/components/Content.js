@@ -12,12 +12,14 @@ import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import RefreshIcon from '@material-ui/icons/Refresh';
+import DescriptionIcon from '@material-ui/icons/Description';
 
 const styles = theme => ({
   paper: {
     maxWidth: 936,
     margin: 'auto',
     overflow: 'hidden',
+    marginTop:5
   },
   searchBar: {
     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
@@ -40,44 +42,47 @@ function Content(props) {
   const { classes } = props;
 
   return (
-    <Paper className={classes.paper}>
-      <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
-        <Toolbar>
-          <Grid container spacing={16} alignItems="center">
-            <Grid item>
-              <SearchIcon className={classes.block} color="inherit" />
+    <div>
+      <Paper className={classes.paper}>
+        <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
+          <Toolbar>
+            <Grid container spacing={16} alignItems="center">
+              <Grid item>
+                <DescriptionIcon className={classes.block} color="inherit" />
+              </Grid>
+              <Grid item xs>
+                Infracción por mal estacionamiento 03/02/2019
+              </Grid>
             </Grid>
-            <Grid item xs>
-              <TextField
-                fullWidth
-                placeholder="Search by email address, phone number, or user UID"
-                InputProps={{
-                  disableUnderline: true,
-                  className: classes.searchInput,
-                }}
-              />
-            </Grid>
-            <Grid item>
-              <Button variant="contained" color="primary" className={classes.addUser}>
-                Add user
-              </Button>
-              <Tooltip title="Reload">
-                <IconButton>
-                  <RefreshIcon className={classes.block} color="inherit" />
-                </IconButton>
-              </Tooltip>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
-      <div className={classes.contentWrapper}>
-        <Typography color="textSecondary" align="center">
-          No users for this project yet
-        </Typography>
-      </div>
+          </Toolbar>
+        </AppBar>
+        <div className={classes.contentWrapper}>
+          <Typography color="textSecondary" align="center">
+            Description
+          </Typography>
+        </div>
+      </Paper>
 
-    </Paper>
-
+      <Paper className={classes.paper}>
+        <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
+          <Toolbar>
+            <Grid container spacing={16} alignItems="center">
+              <Grid item>
+                <DescriptionIcon className={classes.block} color="inherit" />
+              </Grid>
+              <Grid item xs>
+                Infracción por foto-multa 09/15/2016
+              </Grid>
+            </Grid>
+          </Toolbar>
+        </AppBar>
+        <div className={classes.contentWrapper}>
+          <Typography color="textSecondary" align="center">
+            Description
+          </Typography>
+        </div>
+      </Paper>
+    </div>
 
 
   );
