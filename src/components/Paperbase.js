@@ -6,7 +6,6 @@ import Hidden from '@material-ui/core/Hidden';
 import Navigator from './Navigator';
 import Content from './Content';
 import Header from './Header';
-import purple from '@material-ui/core/colors/purple';
 
 let theme = createMuiTheme({
   typography: {

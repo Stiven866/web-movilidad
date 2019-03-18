@@ -1,14 +1,12 @@
-import React, {useState} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles,ListItem,ListItemIcon,List,ListItemText,Drawer,Divider,Paper} from '@material-ui/core';
-import HomeIcon from '@material-ui/icons/Home'
-import PeopleIcon from '@material-ui/icons/People';
 import {categories} from './data.js';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import DateFnsUtils from "@date-io/date-fns";
-import { BasePicker, MuiPickersUtilsProvider, TimePickerView, Calendar } from "material-ui-pickers";
+import { BasePicker, MuiPickersUtilsProvider, Calendar } from "material-ui-pickers";
 
 const styles = theme => ({
   categoryHeader: {
@@ -61,83 +59,99 @@ const styles = theme => ({
   },
 });
 
-function Navigator(props) {
-  const [selectedDate, handleDateChange] = useState(new Date());
-  const { classes, ...other } = props;
-  console.log(categories);
+class Navigator extends Component {
+
+  constructor(props) {
+      super(props);
+      this.state = {
+        selectedDate: new Date(),
+      };
+    }
+
+  handleDateChange = (date) => {
+    this.setState({ selectedDate: date });
+  }
+
+    render(){
+      const {selectedDate} = this.state;
+      const { classes, ...other } = this.props;
+
   return (
-    <Drawer variant="permanent" {...other}>
-      <List disablePadding>
-        <ListItem className={classNames(classes.item, classes.itemCategory)}>
-          <IconButton color="inherit">
-            <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-IQjfa4W1pi2M9AT4v_uvbO0Fz2lbbfsfTTo6Rf8SqeghVUPj"
-              className={classes.iconButtonAvatar}>
-            </Avatar>
-          </IconButton>
-            <ListItemText classes={{primary:classes.itemPrimary}} >
-              Stiven Duque
-            </ListItemText>
-        </ListItem>
-
-        <ListItem className={classNames(classes.Calendar)}>
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <BasePicker value={selectedDate} onChange={handleDateChange}>
-              {({
-                date,
-                handleAccept,
-                handleChange,
-                handleClear,
-                handleDismiss,
-                handleSetTodayDate,
-                handleTextFieldChange,
-              }) => (
-                <div>
-                  <div className="picker">
-                    <Paper style={{ overflow: "hidden" }}>
-                      <Calendar date={date} onChange={handleChange} />
-                    </Paper>
-                  </div>
-                </div>
-              )}
-            </BasePicker>
-          </MuiPickersUtilsProvider>
-        </ListItem>
-
-        <Divider className={classes.divider} />
-
-        {categories.map(({ id, children }) => (
-          <React.Fragment key={id}>
-            <ListItem className={classes.categoryHeader}>
-              <ListItemText classes={{primary: classes.categoryHeaderPrimary}}>
-                {id}
+    <div>
+      <Drawer variant="permanent" {...other}>
+        <List disablePadding>
+          <ListItem className={classNames(classes.item, classes.itemCategory)}>
+            <IconButton color="inherit">
+              <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-IQjfa4W1pi2M9AT4v_uvbO0Fz2lbbfsfTTo6Rf8SqeghVUPj"
+                className={classes.iconButtonAvatar}>
+              </Avatar>
+            </IconButton>
+              <ListItemText classes={{primary:classes.itemPrimary}} >
+                Stiven Duque
               </ListItemText>
-            </ListItem>
-            {children.map(({ id: childId, icon, active }) => (
-              <ListItem button dense key={childId}
-                className={classNames(
-                  classes.item,
-                  classes.itemActionable,
-                  active && classes.itemActiveItem,
+          </ListItem>
+
+          <ListItem className={classNames(classes.Calendar)}>
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <BasePicker value={selectedDate} onChange={this.handleDateChange}>
+                {({
+                  date,
+                  handleAccept,
+                  handleChange,
+                  handleClear,
+                  handleDismiss,
+                  handleSetTodayDate,
+                  handleTextFieldChange,
+                }) => (
+                  <div>
+                    <div className="picker">
+                      <Paper style={{ overflow: "hidden" }}>
+                        <Calendar date={date} onChange={handleChange} />
+                      </Paper>
+                    </div>
+                  </div>
                 )}
-              >
-                <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText
-                  classes={{
-                    primary: classes.itemPrimary,
-                    textDense: classes.textDense,
-                  }}
-                >
-                  {childId}
+              </BasePicker>
+            </MuiPickersUtilsProvider>
+          </ListItem>
+
+          <Divider className={classes.divider} />
+
+          {categories.map(({ id, children }) => (
+            <React.Fragment key={id}>
+              <ListItem className={classes.categoryHeader}>
+                <ListItemText classes={{primary: classes.categoryHeaderPrimary}}>
+                  {id}
                 </ListItemText>
               </ListItem>
-            ))}
-            <Divider className={classes.divider} />
-          </React.Fragment>
-        ))}
+              {children.map(({ id: childId, icon, active }) => (
+                <ListItem button dense key={childId}
+                  className={classNames(
+                    classes.item,
+                    classes.itemActionable,
+                    active && classes.itemActiveItem,
+                  )}
+                >
+                  <ListItemIcon>{icon}</ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.itemPrimary,
+                      textDense: classes.textDense,
+                    }}
+                  >
+                    {childId}
+                  </ListItemText>
+                </ListItem>
+              ))}
+              <Divider className={classes.divider} />
+            </React.Fragment>
+          ))}
 
-      </List>
-    </Drawer>
-  );
+        </List>
+      </Drawer>
+      </div>
+    )
+  }
 }
 
 Navigator.propTypes = {
