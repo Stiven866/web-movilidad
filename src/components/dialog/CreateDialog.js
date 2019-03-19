@@ -96,7 +96,7 @@ class CreateDialog extends React.Component {
             </Typography>
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleClose}  variant="outlined" color="primary">
               Save changes
             </Button>
           </DialogActions>

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
-import Navigator from './Navigator';
-import Card from './Card';
-import Header from './Header';
-import {multas,categories} from './data.js'
+import Navigator from './navigator/Navigator';
+import Card from './card/Card';
+import Header from './header/Header';
+import {multas,categories} from './storage/data.js'
 
 let theme = createMuiTheme({
   typography: {

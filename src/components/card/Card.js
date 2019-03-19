@@ -1,13 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {AppBar,Toolbar,Typography,Paper,Grid,Button,CardActions} from '@material-ui/core';
-//import Toolbar from '@material-ui/core/Toolbar';
-//import Typography from '@material-ui/core/Typography';
-//import Paper from '@material-ui/core/Paper';
-//import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import DescriptionIcon from '@material-ui/icons/Description';
-import CreateDialog from './CreateDialog';
+import CreateDialog from '../dialog/CreateDialog';
 
 const styles = theme => ({
   paper: {
@@ -65,7 +61,7 @@ class Card extends Component{
             </Typography>
           </div>
           <CardActions className={classes.button}>
-            <Button variant="outlined" size="small" color="primary">
+            <Button variant="outlined" color="primary">
               Agendar Cita
             </Button>
             <CreateDialog/>

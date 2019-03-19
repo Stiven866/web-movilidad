@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles,ListItem,ListItemIcon,List,ListItemText,Drawer,Divider,Paper} from '@material-ui/core';
-import {categories} from './data.js';
+import {categories} from '../storage/data.js';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import DateFnsUtils from "@date-io/date-fns";
