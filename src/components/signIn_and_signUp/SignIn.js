@@ -190,7 +190,7 @@ class SignIn extends Component {
         break;
     }
 
-    this.setState({ formErrors, [name]: value }, () => console.log(this.state));
+    this.setState({ formErrors, [name]: value }/**, () => console.log(this.state)**/);
   };
 
   render() {
@@ -237,11 +237,11 @@ class SignIn extends Component {
 
               <div className={classes.identification}>
               <TextField
-                id="email"
+                id="id"
                 label="Identificación"
                 margin="normal"
                 variant="outlined"
-                name='identifaction'
+                name='identification'
                 type='number'
                 onChange={this.handleChange}
                 className={formErrors.identification.length > 0 ? "error" : null}
