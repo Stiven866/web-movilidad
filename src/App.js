@@ -8,7 +8,7 @@ class App extends Component {
     this.state={
       firstName: null,
       lastName: null,
-      identifaction:null,
+      identification:null,
       email: null
     }
   }
@@ -16,7 +16,7 @@ class App extends Component {
     this.setState(state=>({
       firstName:e.firstName,
       lastName:e.lastName,
-      identifaction:e.identifaction,
+      identifaction:e.identification,
       email:e.email,
     }))
   }
@@ -24,13 +24,13 @@ class App extends Component {
     const {
       firstName,
       lastName,
-      identifaction,
+      identification,
       email}=this.state
-      console.log(firstName, lastName, identifaction, email);
+      console.log(firstName, lastName, identification, email);
     return (
       <div>
 
-        {(firstName || lastName || email || identifaction) === null ? <SignIn onForm={this.handleForm}/> : <Paperbase/>}
+        {(firstName || lastName || email || identification) === null ? <SignIn onForm={this.handleForm}/> : <Paperbase/>}
       </div>
     );
   }

@@ -130,13 +130,13 @@ class SignIn extends Component {
     this.state = {
       firstName: null,
       lastName: null,
-      identifaction:null,
+      identification:null,
       email: null,
       password: null,
       formErrors: {
         firstName: "",
         lastName: "",
-        identifaction:"",
+        identification:"",
         email: "",
         password: ""
       }
@@ -167,24 +167,24 @@ class SignIn extends Component {
     switch (name) {
       case "firstName":
         formErrors.firstName =
-          value.length < 3 ? "Minimo 3 caracteres" : "";
+          value.length < 3 ? "Mínimo 3 caracteres" : "";
         break;
       case "lastName":
         formErrors.lastName =
-          value.length < 3 ? "Minimo 3 caracteres" : "";
+          value.length < 3 ? "Mínimo 3 caracteres" : "";
         break;
       case "identifaction":
-      formErrors.identifaction =
-        value.length < 3 ? "Minimo 3 caracteres" : "";
+      formErrors.identification =
+        value.length < 3 ? "Mínimo 3 caracteres" : "";
       break;
       case "email":
         formErrors.email = emailRegex.test(value)
           ? ""
-          : "Correo incalido";
+          : "Correo invalido";
         break;
       case "password":
         formErrors.password =
-          value.length < 6 ? "Minimo 6 caracteres" : "";
+          value.length < 6 ? "Mínimo 6 caracteres" : "";
         break;
       default:
         break;
@@ -207,6 +207,7 @@ class SignIn extends Component {
               <div className={classes.firstName}>
               <TextField
                 id="firstName"
+                type='text'
                 label="Nombres"
                 margin="normal"
                 variant="outlined"
@@ -225,6 +226,7 @@ class SignIn extends Component {
                 margin="normal"
                 variant="outlined"
                 name='lastName'
+                type='text'
                 onChange={this.handleChange}
                 className={formErrors.firstName.length > 0 ? "error" : null}
               />
@@ -240,11 +242,12 @@ class SignIn extends Component {
                 margin="normal"
                 variant="outlined"
                 name='identifaction'
+                type='number'
                 onChange={this.handleChange}
-                className={formErrors.identifaction.length > 0 ? "error" : null}
+                className={formErrors.identification.length > 0 ? "error" : null}
               />
-              {formErrors.identifaction.length > 0 && (
-                <span className={classes.errorMessage}>{formErrors.identifaction}</span>
+              {formErrors.identification.length > 0 && (
+                <span className={classes.errorMessage}>{formErrors.identification}</span>
               )}
               </div>
 
@@ -255,6 +258,7 @@ class SignIn extends Component {
                 margin="normal"
                 variant="outlined"
                 name='email'
+                type='text'
                 onChange={this.handleChange}
                 className={formErrors.email.length > 0 ? "error" : null}
               />
@@ -269,6 +273,7 @@ class SignIn extends Component {
                 margin="normal"
                 variant="outlined"
                 name='password'
+                type='password'
                 onChange={this.handleChange}
                 className={formErrors.password.length > 0 ? "error" : null}
               />
