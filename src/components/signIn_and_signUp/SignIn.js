@@ -139,7 +139,8 @@ class SignIn extends Component {
         identification:"",
         email: "",
         password: ""
-      }
+      },
+      formValid:true,
     };
   }
 
@@ -154,6 +155,8 @@ class SignIn extends Component {
         Email: ${this.state.email}
         Password: ${this.state.password}
       `);
+
+      this.props.onForm(this.state);
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
@@ -190,7 +193,15 @@ class SignIn extends Component {
         break;
     }
 
-    this.setState({ formErrors, [name]: value }/**, () => console.log(this.state)**/);
+    this.setState((prevState) => ({
+      ...prevState,
+      formErrors,
+      formValid: formValid({
+        ...prevState,
+        [name]: value
+      }),
+      [name]: value
+    }));
   };
 
   render() {
@@ -287,7 +298,6 @@ class SignIn extends Component {
                   variant="contained"
                   color="primary"
                   type="submit"
-                  onClick={()=>this.props.onForm(this.state)}
                   >
                   Iniciar
                 </Button>

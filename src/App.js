@@ -6,31 +6,18 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      firstName: null,
-      lastName: null,
-      identification:null,
-      email: null
+      formValid: false
     }
   }
-  handleForm=(e)=>{
-    this.setState(state=>({
-      firstName:e.firstName,
-      lastName:e.lastName,
-      identification:e.identification,
-      email:e.email,
-    }))
+  handleForm=({ formValid })=>{
+    console.log({ formValid });
+    this.setState({ formValid });
   }
   render() {
-    const {
-      firstName,
-      lastName,
-      identification,
-      email}=this.state
-      console.log(`Name:${firstName}`, `lastName: ${lastName}`, `id: ${identification}`, `email: ${email}`);
-    return (
+    return(
       <div>
 
-        {(firstName && lastName && email && identification) === null ? <SignIn onForm={this.handleForm}/> : <Paperbase/>}
+        { !this.state.formValid ? <SignIn onForm={this.handleForm}/> : <Paperbase/> }
       </div>
     );
   }
