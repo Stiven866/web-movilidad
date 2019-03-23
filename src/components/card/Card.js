@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import {AppBar,Toolbar,Typography,Paper,Grid,Button,CardActions} from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import DescriptionIcon from '@material-ui/icons/Description';
-import CreateDialog from '../dialog/CreateDialog';
+import CreateDialog from './dialog/CreateDialog';
 
 const styles = theme => ({
   paper: {
     maxWidth: 936,
     margin: 'auto',
     overflow: 'hidden',
-    marginTop:5
+    marginTop:5,
+    marginBottom:20
   },
   searchBar: {
     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
@@ -61,10 +62,8 @@ class Card extends Component{
             </Typography>
           </div>
           <CardActions className={classes.button}>
-            <Button variant="outlined" color="primary">
-              Agendar Cita
-            </Button>
-            <CreateDialog/>
+            <CreateDialog nameButton="Agendar Cita"/>
+            <CreateDialog nameButton="Ver mas"/>
             </CardActions>
         </Paper>
       </div>

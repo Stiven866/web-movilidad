@@ -7,6 +7,7 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
+import Table from './Table';
 
 const DialogTitle = withStyles(theme => ({
   root: {
@@ -65,10 +66,11 @@ class CreateDialog extends Component {
   };
 
   render() {
+    const {nameButton} = this.props;
     return (
       <div>
         <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-          Ver mas
+          {nameButton}
         </Button>
         <Dialog
           onClose={this.handleClose}
@@ -76,27 +78,14 @@ class CreateDialog extends Component {
           open={this.state.open}
         >
           <DialogTitle id="customized-dialog-title" onClose={this.handleClose}>
-            Modal title
+            Detalles de la Multa
           </DialogTitle>
           <DialogContent>
-            <Typography gutterBottom>
-              Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac
-              facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum
-              at eros.
-            </Typography>
-            <Typography gutterBottom>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-              lacus vel augue laoreet rutrum faucibus dolor auctor.
-            </Typography>
-            <Typography gutterBottom>
-              Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-              scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-              auctor fringilla.
-            </Typography>
+            <Table/>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose}  variant="outlined" color="primary">
-              Save changes
+              Cerrar
             </Button>
           </DialogActions>
         </Dialog>

@@ -18,23 +18,18 @@ export const multas = [
   {
     id: 'multa_1',
     title: 'Multa por mal estacionamiento',
-    description: 'Descripción'
+    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, '
   },
   {
     id: 'multa_2',
     title: 'Multa por foto',
-    description: 'Descripción'
+    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,'
   },
   {
     id: 'multa_3',
-    title: 'Multa por foto',
-    description: 'Descripción'
+    title: 'Multa por velocidad',
+    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,'
   },
 
-  {
-    id: 'multa_4',
-    title: 'Multa por idiota',
-    description: 'Descripción'
-  },
 
 ];
