@@ -8,7 +8,7 @@ export const categories = [
     id: 'Virtual Audience',
     children: [
       { id: 'Mis Multas', icon: <DescriptionIcon />},
-      { id: 'Puntos de información', icon: <LocationIcon /> },
+      { id: 'Locaciones Disponibles', icon: <LocationIcon /> },
       { id: 'Configuración', icon: <SettingsIcon /> },
     ],
   },
@@ -29,6 +29,11 @@ export const multas = [
     id: 'multa_3',
     title: 'Multa por velocidad',
     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,'
+  },
+  {
+    id: 'multa_4',
+    title: 'Multa semaforo en rojo',
+    description: ''
   },
 
 

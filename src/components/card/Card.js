@@ -62,8 +62,12 @@ class Card extends Component{
             </Typography>
           </div>
           <CardActions className={classes.button}>
+          
             <CreateDialog nameButton="Agendar Cita"/>
             <CreateDialog nameButton="Ver mas"/>
+            <Button variant="outlined" color="primary">
+            Subir Documentos
+            </Button>
             </CardActions>
         </Paper>
       </div>
