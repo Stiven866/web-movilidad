@@ -85,11 +85,10 @@ class Card extends Component{
                 {description}
               </Typography>
             </div>
-            <CardActions className={classes.button}>
-            
+            <CardActions >
               <CreateDialogPaid nameButton="Agendar Comparecencia"/>
               <CreateDialog nameButton="Ver mas"/>
-              <Button disabled variant="outlined" color="primary" className={classes.button}>
+              <Button disabled variant="outlined" color="primary" >
               Subir Documentos
               </Button>
               </CardActions>

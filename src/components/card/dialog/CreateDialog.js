@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { MuiThemeProvider, createMuiTheme,withStyles } from '@material-ui/core/styles';
-import {Button,Dialog} from '@material-ui/core';
+import {Button,Dialog,IconButton,Tooltip} from '@material-ui/core';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
-import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+import InsertIvitationIcon from '@material-ui/icons/InsertInvitationOutlined'; 
+import VideoCamIcon from '@material-ui/icons/VideocamOutlined'; 
 import Typography from '@material-ui/core/Typography';
 import Table from './Table';
 
@@ -113,6 +114,16 @@ class CreateDialog extends Component {
               <Table/>
             </DialogContent>
             <DialogActions>
+              <IconButton size='small' >
+                <Tooltip title="Fecha y Hora de la Cita: 10/20/2019">
+                <InsertIvitationIcon variant="outlined"/>
+                </Tooltip>
+              </IconButton>
+              <IconButton size='small' href="https://hangouts.google.com/?hl=es-419">
+                <Tooltip title="Cuando des click aquí te enviará a la plataforma para realizar la VideoAudiencia">
+                <VideoCamIcon variant="outlined"/>
+                </Tooltip>
+              </IconButton>
               <Button onClick={this.handleClose}  variant="outlined" color="primary">
                 Cerrar
               </Button>
