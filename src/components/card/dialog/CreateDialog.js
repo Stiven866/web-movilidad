@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import { MuiThemeProvider, createMuiTheme,withStyles } from '@material-ui/core/styles';
 import {Button,Dialog} from '@material-ui/core';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
@@ -8,6 +9,33 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 import Table from './Table';
+
+
+let theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+    h5: {
+      fontWeight: 500,
+      fontSize: 26,
+      letterSpacing: 0.5,
+    },
+  },
+  palette: {
+    primary: {
+      light: '#63ccff',
+      main: '#009be5',
+      dark: '#006db3',
+    },
+  },
+  shape: {
+    borderRadius: 8,
+  },
+});
+const styles = theme => ({
+  button:{
+    marginLeft:theme.spacing.unit,
+  }
+});
 
 const DialogTitle = withStyles(theme => ({
   root: {
@@ -20,7 +48,7 @@ const DialogTitle = withStyles(theme => ({
     right: theme.spacing.unit,
     top: theme.spacing.unit,
     color: theme.palette.grey[500],
-  },
+  }
 }))(props => {
   const { children, classes, onClose } = props;
   return (
@@ -33,7 +61,7 @@ const DialogTitle = withStyles(theme => ({
       ) : null}
     </MuiDialogTitle>
   );
-});
+})
 
 const DialogContent = withStyles(theme => ({
   root: {
@@ -66,32 +94,38 @@ class CreateDialog extends Component {
   };
 
   render() {
-    const {nameButton} = this.props;
+    const {classes, nameButton} = this.props;
     return (
-      <div>
-        <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-          {nameButton}
-        </Button>
-        <Dialog
-          onClose={this.handleClose}
-          aria-labelledby="customized-dialog-title"
-          open={this.state.open}
-        >
-          <DialogTitle id="customized-dialog-title" onClose={this.handleClose}>
-            Detalles de la Multa
-          </DialogTitle>
-          <DialogContent>
-            <Table/>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose}  variant="outlined" color="primary">
-              Cerrar
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
+      <MuiThemeProvider theme={theme}>
+        <div>
+          <Button variant="outlined" color="primary" onClick={this.handleClickOpen} className={classes.button}>
+            {nameButton}
+          </Button>
+          <Dialog
+            onClose={this.handleClose}
+            aria-labelledby="customized-dialog-title"
+            open={this.state.open}
+          >
+            <DialogTitle id="customized-dialog-title" onClose={this.handleClose}>
+              Detalles de la Multa
+            </DialogTitle>
+            <DialogContent>
+              <Table/>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.handleClose}  variant="outlined" color="primary">
+                Cerrar
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
 
-export default CreateDialog;
+
+CreateDialog.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+export default withStyles(styles)(CreateDialog);
