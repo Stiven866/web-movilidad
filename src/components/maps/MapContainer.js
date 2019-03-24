@@ -37,18 +37,18 @@ export class MapContainer extends Component {
         <Map google={this.props.google}
         centerAroundCurrentLocation={false}
           initialCenter={{
-              lat: 6.270968,
-              lng: -75.5753486
+              lat: 6.2550183,
+              lng: -75.5788177
           }}
           zoom={13}
           >
           <Marker
               onClick={this.onMarkerClick}
-              name={'Transito de Medellín'}
+              name={'Secretaria de movilidad de Medellín'}
               position={{lat: 6.270968, lng: -75.5753486}} />
           <Marker
               onClick={this.onMarkerClick}
-              name={'Premium Plaza'}
+              name={'Premium Plaza Centro Comercial'}
               position={{lat: 6.2297793, lng: -75.5719467}} />
 
           <InfoWindow

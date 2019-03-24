@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { MuiThemeProvider, createMuiTheme,withStyles } from '@material-ui/core/styles';
-import {Button,Dialog} from '@material-ui/core';
+import {Button,Dialog,ListItemSecondaryAction,Tooltip} from '@material-ui/core';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Fab from '@material-ui/core/Fab';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import CalendarIcon from '@material-ui/icons/CalendarToday';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import Grid from '@material-ui/core/Grid';
 import {List,ListItem,ListItemText} from '@material-ui/core';
 
@@ -129,25 +130,39 @@ class CreateDialogPaid extends Component {
             open={this.state.open}
             >
                 <DialogTitle id="customized-dialog-title" onClose={this.handleClose}>
-                    Agendar una Cita
+                  Agendar una Cita
                 </DialogTitle>
                 <DialogContent>
                 <List disablePadding component='ul'>
-                    <Grid container direction='row' className={(classes.formWrapper,classes.gridList)}>
-                        <ListItem button > 
+                  <Grid container direction='row' className={(classes.formWrapper,classes.gridList)}>
+                      <ListItem button > 
                         <Fab href='https://www.pse.com.co/inicio' color="primary" aria-label="Edit" className={classes.fab}>
                             <AttachMoneyIcon/>
                         </Fab>
-                        <ListItemText>Pagar Comparecencia</ListItemText>
+                        <ListItemText>
+                          Pagar Servicio Virtual
+                          <ListItemSecondaryAction>
+                            <Tooltip title="Primero debes realizar el pago para adquirir el servicio de Comparecencia Virtual">
+                              <HelpOutlineIcon color='primary'/>
+                            </Tooltip>
+                          </ListItemSecondaryAction>
+                        </ListItemText>
                         </ListItem> 
-                        <ListItem button> 
-                        <Fab color="primary" aria-label="Edit" className={classes.fab}>
-                            <CalendarIcon/>
-                        </Fab>
-                        <ListItemText>Agendar Cita</ListItemText>
-                        </ListItem>
-                    </Grid>
-                    </List>
+                      <ListItem button > 
+                      <Fab color="primary" aria-label="Edit" className={classes.fab}>
+                          <CalendarIcon/>
+                      </Fab>
+                      <ListItemText>
+                        Agendar Cita
+                        <ListItemSecondaryAction>
+                          <Tooltip title="Cuando realices el pago y des click aquí podras ver los días que tiene el inspector disponibles en los que te puede atender">
+                            <HelpOutlineIcon color='primary'/>
+                          </Tooltip>
+                        </ListItemSecondaryAction>
+                      </ListItemText>
+                      </ListItem>
+                  </Grid>
+                </List>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={this.handleClose}  variant="outlined" color="primary">

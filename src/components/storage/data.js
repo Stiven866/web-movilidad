@@ -5,7 +5,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 
 export const categories = [
   {
-    id: 'Virtual Audience',
+    id: 'Comparecencia Virtual',
     children: [
       { id: 'Mis Multas', icon: <DescriptionIcon />},
       { id: 'Locaciones Disponibles', icon: <LocationIcon /> },

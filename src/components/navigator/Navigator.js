@@ -82,7 +82,7 @@ class Navigator extends Component {
         <List disablePadding component='ul'>
           <ListItem className={classNames(classes.item, classes.itemCategory)}>
             <IconButton color="inherit">
-              <Avatar src="https://cdn0.iconfinder.com/data/icons/iconshock_guys/512/andrew.png"
+              <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6_7u75Cr6Wa3ZBajeL9Gf-Alu71YqLjClcBPwAT6-ngDUVs-C"
                 className={classes.iconButtonAvatar}>
               </Avatar>
             </IconButton>
