@@ -8,7 +8,6 @@ import Card from './card/Card';
 import Header from './header/Header';
 import {multas,categories} from './storage/data.js'
 import Maps from './maps/MapContainer'
-import {Paper}from '@material-ui/core'
 
 let theme = createMuiTheme({
   typography: {
@@ -21,7 +20,7 @@ let theme = createMuiTheme({
   },
   palette: {
     primary: {
-      light: '#63ccff',
+      light:'#63ccff',
       main: '#009be5',
       dark: '#006db3',
     },
@@ -152,13 +151,6 @@ const styles = {
     padding: '36px 36px 0',
     background: '#eaeff1',
   },
-  paper: {
-    maxWidth: 936,
-    margin: 'auto',
-    overflow: 'hidden',
-    marginTop:5,
-    marginBottom:20
-  },
 };
 
 class Paperbase extends React.Component {
@@ -211,7 +203,9 @@ class Paperbase extends React.Component {
               ? multas.map(({id, title, description})=>
                 <Card key={id} title={title} description={description}/>
               )
-              : (idItem === categories[0].children[1].id ? <div><Paper className={classes.appContent}><Maps/></Paper></div>: <h1>Configuración</h1>)
+              : (idItem === categories[0].children[1].id 
+                ? <Maps/>
+              : <h1>Configuración</h1>)
             }
             </main>
           </div>

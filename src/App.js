@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return(
       <div>
-       { !this.state.formValid ? <SignIn onForm={this.handleForm}/> : <Paperbase/> }
+      { !this.state.formValid ? <SignIn onForm={this.handleForm}/> : <Paperbase/> }      
       </div>
     );
   }
