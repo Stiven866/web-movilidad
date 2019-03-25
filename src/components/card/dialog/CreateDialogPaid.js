@@ -123,7 +123,7 @@ class CreateDialogPaid extends Component {
     });
   }
   handlePrueba = () =>{
-    alert("Confirmar la cita asignada")
+    alert("Estás seguro!")
   }
 
   render() {

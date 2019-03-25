@@ -1,7 +1,7 @@
 import React from 'react';
-import LocationIcon from '@material-ui/icons/LocationOn';
-import DescriptionIcon from '@material-ui/icons/Description';
-import SettingsIcon from '@material-ui/icons/Settings';
+import LocationIcon from '@material-ui/icons/LocationOnOutlined';
+import DescriptionIcon from '@material-ui/icons/DescriptionOutlined';
+import SettingsIcon from '@material-ui/icons/SettingsOutlined';
 
 export const categories = [
   {

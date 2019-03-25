@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {AppBar,Toolbar,Typography,Paper,Grid,Button,CardActions} from '@material-ui/core';
 import { MuiThemeProvider, createMuiTheme,withStyles } from '@material-ui/core/styles';
-import DescriptionIcon from '@material-ui/icons/Description';
+import DescriptionIcon from '@material-ui/icons/DescriptionOutlined';
 import CreateDialog from './dialog/CreateDialog';
 import CreateDialogPaid from './dialog/CreateDialogPaid';
 
@@ -52,7 +52,7 @@ const styles = theme => ({
     margin: '40px 16px',
   },
   button:{
-    marginLeft: theme.spacing.unit,
+    marginLeft: theme.spacing.unit *2,
   }
 });
 
@@ -85,10 +85,10 @@ class Card extends Component{
                 {description}
               </Typography>
             </div>
-            <CardActions >
+            <CardActions className={classes.button}>
               <CreateDialogPaid nameButton="Agendar Comparecencia"/>
               <CreateDialog nameButton="Ver mas"/>
-              <Button disabled variant="outlined" color="primary" >
+              <Button disabled variant="outlined" color="primary" className={classes.button}>
               Subir Documentos
               </Button>
               </CardActions>
