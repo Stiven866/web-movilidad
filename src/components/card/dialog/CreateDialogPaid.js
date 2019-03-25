@@ -109,12 +109,22 @@ class CreateDialogPaid extends Component {
   handleClickOpen = () => {
     this.setState({
       open: true,
+      cita:false
     });
   };
 
   handleClose = () => {
     this.setState({ open: false });
   };
+
+  handleClickDate = () => {
+    this.setState({
+      cita:true,
+    });
+  }
+  handlePrueba = () =>{
+    alert("Confirmar la cita asignada")
+  }
 
   render() {
     const {classes, nameButton} = this.props;
@@ -133,7 +143,9 @@ class CreateDialogPaid extends Component {
                   Agendar una Cita
                 </DialogTitle>
                 <DialogContent>
-                <List disablePadding component='ul'>
+                {!this.state.cita
+                  ?
+                  <List disablePadding component='ul'>
                   <Grid container direction='row' className={(classes.formWrapper,classes.gridList)}>
                       <ListItem button > 
                         <Fab href='https://www.pse.com.co/inicio' color="primary" aria-label="Edit" className={classes.fab}>
@@ -149,7 +161,7 @@ class CreateDialogPaid extends Component {
                         </ListItemText>
                         </ListItem> 
                       <ListItem button > 
-                      <Fab color="primary" aria-label="Edit" className={classes.fab}>
+                      <Fab color="primary" aria-label="Edit" className={classes.fab} onClick={this.handleClickDate}>
                           <CalendarIcon/>
                       </Fab>
                       <ListItemText>
@@ -163,6 +175,10 @@ class CreateDialogPaid extends Component {
                       </ListItem>
                   </Grid>
                 </List>
+                : 
+                  <img onClick={this.handlePrueba} src ="https://i.blogs.es/14f31e/time-for-a-refresh_-meet-the-new-google-calendar-for-web/450_1000.png"/>
+                  }
+                
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={this.handleClose}  variant="outlined" color="primary">
