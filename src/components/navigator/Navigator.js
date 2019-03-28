@@ -87,7 +87,7 @@ class Navigator extends Component {
               </Avatar>
             </IconButton>
               <ListItemText classes={{primary:classes.itemPrimary}} >
-                Stiven Duque
+                Hugo Alfredo Pérez
               </ListItemText>
           </ListItem>
 
