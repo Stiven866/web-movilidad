@@ -125,6 +125,10 @@ class CreateDialogPaid extends Component {
   handlePrueba = () =>{
     alert("Estás seguro!")
   }
+  
+  handleClickOpenPage = ()=>{
+    window.open("https://www.pse.com.co/inicio");
+  }
 
   render() {
     const {classes, nameButton} = this.props;
@@ -148,7 +152,7 @@ class CreateDialogPaid extends Component {
                   <List disablePadding component='ul'>
                   <Grid container direction='row' className={(classes.formWrapper,classes.gridList)}>
                       <ListItem button > 
-                        <Fab href='https://www.pse.com.co/inicio' color="primary" aria-label="Edit" className={classes.fab}>
+                        <Fab onClick={this.handleClickOpenPage} color="primary" aria-label="Edit" className={classes.fab}>
                             <AttachMoneyIcon/>
                         </Fab>
                         <ListItemText>

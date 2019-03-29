@@ -94,6 +94,10 @@ class CreateDialog extends Component {
     this.setState({ open: false });
   };
 
+  handleClickOpenPage = ()=>{
+    window.open("https://hangouts.google.com/?hl=es-419");
+  };
+
   render() {
     const {classes, nameButton} = this.props;
     return (
@@ -119,7 +123,7 @@ class CreateDialog extends Component {
                 <InsertIvitationIcon variant="outlined"/>
                 </Tooltip>
               </IconButton>
-              <IconButton size='small' href="https://hangouts.google.com/?hl=es-419">
+              <IconButton size='small' onClick={this.handleClickOpenPage}>
                 <Tooltip title="Cuando des click aquí te enviará a la plataforma para realizar la VideoAudiencia">
                 <VideoCamIcon variant="outlined"/>
                 </Tooltip>
