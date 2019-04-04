@@ -20,9 +20,11 @@ let theme = createMuiTheme({
   },
   palette: {
     primary: {
-      light:'#63ccff',
-      main: '#009be5',
-      dark: '#006db3',
+      light:'#56b7b0',
+      main: '#32a79f',
+      dark: '#199088',
+      contrastText: '#fff',
+      
     },
   },
   shape: {
@@ -195,6 +197,7 @@ class Paperbase extends React.Component {
           </nav>
           <div className={classes.appContent}>
             <Header
+              color="textPrimary"
               onTitle = {idItem}
               onDrawerToggle={this.handleDrawerToggle}
             />

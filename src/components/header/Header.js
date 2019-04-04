@@ -74,7 +74,7 @@ function Header (props) {
         <Toolbar>
           <Grid container alignItems="center" spacing={8}>
             <Grid item xs>
-              <Typography color="inherit" variant="h5">
+              <Typography variant="h5" color="inherit">
                 Consulta de infracciones
               </Typography>
             </Grid>
@@ -88,7 +88,7 @@ function Header (props) {
         position="static"
         elevation={0}
       >
-        <Tabs value={0} textColor="inherit">
+        <Tabs value={0} >
           <Tab textColor="inherit" label={onTitle} />
         </Tabs>
       </AppBar>

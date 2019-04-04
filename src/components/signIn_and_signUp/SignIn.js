@@ -15,9 +15,10 @@ let theme = createMuiTheme({
   },
   palette: {
     primary: {
-      light: '#63ccff',
-      main: '#009be5',
-      dark: '#006db3',
+      light:'#56b7b0',
+      main: '#32a79f',
+      dark: '#199088',
+      contrastText: '#fff',
     },
   },
   shape: {
@@ -32,7 +33,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#009be5',
+    backgroundColor: '#32a79f',
   },
   formWrapper: {
     maxWidth:'60vh',
@@ -41,7 +42,7 @@ const styles = {
     padding: '10px 30px',
     margin:'10px',
     borderRadius: '10px',
-    boxShadow: '0px 10px 50px #006db3',
+    boxShadow: '0px 10px 50px #199088',
     backgroundColor: '#fafafa',
   },
   form: {
@@ -176,7 +177,7 @@ class SignIn extends Component {
         formErrors.lastName =
           value.length < 3 ? "Mínimo 3 caracteres" : "";
         break;
-      case "identifaction":
+      case "identification":
       formErrors.identification =
         value.length < 3 ? "Mínimo 3 caracteres" : "";
       break;
@@ -187,7 +188,7 @@ class SignIn extends Component {
         break;
       case "password":
         formErrors.password =
-          value.length < 6 ? "Mínimo 6 caracteres" : "";
+          value.length < 7 ? "Mínimo 8 caracteres" : "";
         break;
       default:
         break;

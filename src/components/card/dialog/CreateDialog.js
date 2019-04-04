@@ -23,9 +23,10 @@ let theme = createMuiTheme({
   },
   palette: {
     primary: {
-      light: '#63ccff',
-      main: '#009be5',
-      dark: '#006db3',
+      light:'#56b7b0',
+      main: '#32a79f',
+      dark: '#199088',
+      contrastText: '#fff',
     },
   },
   shape: {
@@ -54,7 +55,7 @@ const DialogTitle = withStyles(theme => ({
   const { children, classes, onClose } = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root}>
-      <Typography variant="h6">{children}</Typography>
+      <Typography variant="h6" color="textPrimary">{children}</Typography>
       {onClose ? (
         <IconButton aria-label="Close" className={classes.closeButton} onClick={onClose}>
           <CloseIcon />
