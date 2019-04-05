@@ -12,10 +12,14 @@
     "material-ui-image": "^3.1.0",
     "material-ui-next-pickers": "0.0.20",
     "material-ui-pickers": "^2.2.4",
+    "moment": "^2.24.0",
+    "moment-mini": "^2.22.1",
     "react": "^16.8.4",
+    "react-big-calendar": "^0.20.4",
     "react-calendar-material": "^0.1.8",
     "react-dom": "^16.8.4",
     "react-md": "^1.9.3",
+    "react-moment": "^0.8.4",
     "react-scripts": "2.1.8"
   },
   "scripts": {

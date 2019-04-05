@@ -14,6 +14,7 @@ import CalendarIcon from '@material-ui/icons/CalendarToday';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import Grid from '@material-ui/core/Grid';
 import {List,ListItem,ListItemText} from '@material-ui/core';
+import Popup from './bigCalendar/Popup';
 
 let theme = createMuiTheme({
     typography: {
@@ -38,6 +39,7 @@ let theme = createMuiTheme({
   });
   
 
+
 const styles = theme => ({
   button:{
     marginLeft:theme.spacing.unit,
@@ -53,12 +55,11 @@ const styles = theme => ({
     height: 200,
   },
   formWrapper: {
-    maxWidth:'60vh',
+    maxWidth:'100vh',
     display: 'flex',
     flexDirection: 'row',
     padding: '10px 30px',
-    margin:'10px',
-  }
+  },
 });
 
 const DialogTitle = withStyles(theme => ({
@@ -179,9 +180,14 @@ class CreateDialogPaid extends Component {
                       </ListItemText>
                       </ListItem>
                   </Grid>
+                
                 </List>
+
                 : 
-                  <img onClick={this.handlePrueba} src ="https://i.blogs.es/14f31e/time-for-a-refresh_-meet-the-new-google-calendar-for-web/450_1000.png"/>
+
+                  <div style={{width:600}}>
+                    <Popup/>
+                  </div>
                   }
                 
                 </DialogContent>
