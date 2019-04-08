@@ -184,8 +184,7 @@ class CreateDialogPaid extends Component {
                 </List>
 
                 : 
-
-                  <div style={{width:600}}>
+                  <div style={{width:500}}>
                     <Popup/>
                   </div>
                   }
